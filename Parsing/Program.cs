@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine(DateTime.Now);
+            Console.ReadLine();
             #region Parse From String
 
             string age = "23";
@@ -11,10 +14,6 @@
 
             int ageAsNumber = int.Parse(age);
             Console.WriteLine($"{ageAsNumber}. Is of type: {ageAsNumber.GetType().Name}\n");
-
-            string ageError = "23a";
-            //int ageAsNumberError = int.Parse(ageError);
-            //Console.WriteLine(ageAsNumberError);
 
             decimal ageAsDecimal = decimal.Parse(age);
             Console.WriteLine($"{ageAsDecimal}. Is of type: {ageAsDecimal.GetType().Name}\n");
@@ -40,9 +39,36 @@
 
             #endregion
 
+            #region Parse From Integer
+            int weight = 1000;
+            Console.WriteLine($"{weight}. Is of type: {weight.GetType().Name}\n");
 
+            decimal decimalFromInt = (decimal)weight;
+            Console.WriteLine($"{decimalFromInt}. Is of type: {decimalFromInt.GetType().Name}\n");
 
+            short shortAsString = (short)weight;
+            Console.WriteLine($"{shortAsString}. Is of type: {shortAsString.GetType().Name}\n");
 
+            uint uintAsString = (uint)weight;
+            Console.WriteLine($"{uintAsString}. Is of type: {uintAsString.GetType().Name}\n");
+
+            #endregion
+
+            #region Parse Fail and data loss
+            Console.WriteLine("ERRORS");
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++");
+            Console.ReadLine();
+
+            //Int 32 to int 16
+            //int -31 to uint
+            //decimal 3.123 to int
+
+            int bigNum = 123315468;
+
+            short ageAsNumberError = (short)bigNum; //casting
+            Console.WriteLine(ageAsNumberError);
+           
+            #endregion
 
         }
     }
