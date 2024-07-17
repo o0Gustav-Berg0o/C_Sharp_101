@@ -51,3 +51,6 @@ During ModifyReference:
 | numbers: ref      |
 | fruits: ref       |
 +-------------------+
+
+Note that the heap remains largely unchanged throughout these operations, except for the modification of the Person object's Age when ModifyReference is called.
+This illustration shows how the stack grows and shrinks with method calls and local scopes, while the heap remains more stable, only changing when objects are modified or when new objects are created/removed.

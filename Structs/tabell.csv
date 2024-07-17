@@ -1,0 +1,12 @@
+Egenskap,Struct,Klass
+Värdetyp vs. Referenstyp,Värdetyp,Referenstyp
+Lagring,Stack (vanligtvis),Heap
+Arv,Kan inte ärvas från,Kan ärvas från
+Standardkonstruktor,Kan inte deklareras,Kan deklareras
+Destruktor,Kan inte ha,Kan ha
+Nullvärde,Kan inte vara null (utan Nullable<T>),Kan vara null
+Prestanda,Snabbare för små datastrukturer,Overhead för heapallokering
+Minnesanvändning,Mindre för små datastrukturer,Mer på grund av heapallokering
+Kopiering,Värdekopia (shallow copy),Referenskopia som standard
+Interfaces,Kan implementera,Kan implementera
+Standardvärde,Alla fält initialiseras till default,Referens är null som standard
