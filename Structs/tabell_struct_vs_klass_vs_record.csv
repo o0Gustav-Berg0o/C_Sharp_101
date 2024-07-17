@@ -1,0 +1,14 @@
+Egenskap,Struct,Klass,Record
+Typ,Värdetyp,Referenstyp,Referenstyp
+Primärt syfte,Små datastrukturer,Objekt med beteende och data,Oföränderliga datastrukturer
+Oföränderlighet,Kan vara mutable eller immutable,Vanligtvis mutable,Immutable som standard
+Värdesemantik,Ja,Nej (referenssemantik),Ja (strukturell jämlikhet)
+Nullability,Inte nullable som standard,Nullable,Nullable
+Arv,Kan inte ärvas från,Kan ärvas från,Kan ärvas från (sealed som standard)
+Konstruktor,Kan ha parameterlös konstruktor,Flexibel konstruktor,Kortfattad primär konstruktor
+Prestanda,Bättre för små datastrukturer,Overhead för heapallokering,Liknande klass men med optimeringar
+Equals() och GetHashCode(),Kräver manuell implementation,Kräver manuell implementation,Automatiskt implementerade
+With-uttryck,Inte inbyggt,Inte inbyggt,Inbyggt stöd
+Dekonstrerings-stöd,Manuell implementation,Manuell implementation,Inbyggt
+Standardvärde,Initialiserad med default värden,null,null
+Användning i generiska samlingar,Kan leda till oväntade kopior,Effektivt,Effektivt

@@ -1,0 +1,10 @@
+Egenskap,Record,Klass
+Primärt syfte,Representera oföränderliga datastrukturer,Representera objekt med beteende och data
+Värdesemantik,Ja (strukturell jämlikhet),Nej (referensjämlikhet som standard)
+Oföränderlighet,Som standard (med init-only properties),Mutable som standard
+Konstruktor-syntax,Kortfattad primär konstruktor,Traditionell konstruktor-syntax
+Dekonstrerings-stöd,Inbyggt,Kräver manuell implementation
+With-uttryck,Inbyggt stöd,Kräver manuell implementation
+Arv,Kan ärvas från (sealed som standard),Kan ärvas från
+ToString() override,Automatisk meningsfull implementation,Kräver manuell override
+Equals() och GetHashCode(),Automatiskt implementerade,Kräver manuell implementation
