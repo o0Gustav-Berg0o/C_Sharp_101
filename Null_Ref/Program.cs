@@ -55,7 +55,7 @@ class Program
         Console.WriteLine(person?.Name); // Outputs nothing, doesn't throw an exception
 
         // Using the null coalescing operator (??) to provide a default value
-        string name = person?.Name ?? "Unknown";
+        string name2 = person?.Name ?? "Unknown";
         Console.WriteLine($"Name: {name}"); // Outputs: Name: Unknown
 
         // Nullable value types

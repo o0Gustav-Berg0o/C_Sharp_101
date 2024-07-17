@@ -1,0 +1,28 @@
+Start
+|
+V
+Är datastrukturen primärt för att hålla data (utan komplex logik)?
+|---> Ja ---> Behöver du värdesemantik (strukturell jämförelse)?
+|             |---> Ja ---> Är datastrukturen oföränderlig?
+|             |             |---> Ja ---> Är datastrukturen stor (>16 bytes)?
+|             |             |             |---> Ja ---> Använd Record
+|             |             |             |---> Nej ---> Använd Struct
+|             |             |---> Nej ---> Använd Klass
+|             |---> Nej ---> Använd Klass
+|---> Nej ---> Behöver du ärva från denna typ?
+              |---> Ja ---> Använd Klass
+              |---> Nej ---> Är datastrukturen liten och prestandakritisk?
+                             |---> Ja ---> Använd Struct
+                             |---> Nej ---> Använd Klass
+
+
+Detta flödesdiagram guidar dig genom de viktigaste övervägandena för att välja mellan record, struct och klass. Här är några förklaringar till nyckelfrågorna:
+
+"Är datastrukturen primärt för att hålla data?": Om typen huvudsakligen används för att lagra data utan komplex logik, kan record eller struct vara lämpliga.
+"Behöver du värdesemantik?": Om du vill jämföra objekt baserat på deras innehåll snarare än deras referens, kan record eller struct vara bättre val.
+"Är datastrukturen oföränderlig?": Records är designade för oföränderliga data, medan structs kan vara antingen föränderliga eller oföränderliga.
+"Är datastrukturen stor?": Structs bör generellt hållas små (mindre än 16 bytes) för bästa prestanda.
+"Behöver du ärva från denna typ?": Klasser är det enda alternativet om du behöver arv.
+"Är datastrukturen liten och prestandakritisk?": För små, prestandakritiska datastrukturer kan structs vara fördelaktiga.
+
+Detta diagram ger en generell vägledning, men kom ihåg att verkliga scenarier kan vara mer komplexa och kräva ytterligare överväganden.
