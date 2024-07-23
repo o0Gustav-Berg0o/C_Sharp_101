@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Pattern_Matching
 {
@@ -6,6 +7,11 @@ namespace Pattern_Matching
     {
         static void Main(string[] args)
         {
+            Switch();
+            //Konstant();
+            //Typ();
+            //Variable();
+            Console.ReadLine();
             object[] shapes = new object[]
             {
                 new Circle(5),
@@ -65,6 +71,80 @@ namespace Pattern_Matching
                 Console.WriteLine(description);
             }
         }
+        static void Konstant() 
+        {
+            Object obj = 42;
+
+            if (obj is 42)
+            {
+                Console.WriteLine(obj);
+            }
+            else
+            {
+                Console.WriteLine("Objektet har ej värdet 42");
+            }
+        }
+
+        static void Typ()
+        {
+            Object obj = new Circle(42);
+
+            if (obj is Circle c)
+            {
+                Console.WriteLine(obj);
+            }
+            else
+            {
+                Console.WriteLine("Objektet är ej av typen Circle");
+            }
+        }
+
+        static void Variable()
+        {
+            Object obj = new Circle(42.2);
+
+            if (obj is Circle c)
+            {
+                Console.WriteLine(c.Radius);
+            }
+            else
+            {
+                Console.WriteLine("Objektet är ej av typen Circle");
+            }
+        }
+        static void Egenskap()
+        {
+            object obj = new Person { Name = "Alice", Age = 30 };
+
+            if (obj is Person { Age: var age, Name: var name })
+            {
+                Console.WriteLine($"The person's name is {name} and they are {age} years old.");
+            }
+            else
+            {
+                Console.WriteLine("The object is not a Person or does not have the expected properties.");
+            }
+        }
+
+        static void Switch()
+        {
+            Person person = new Person { Name = "Alice", Age = 18 };
+            string alice = GetCategory(person); 
+            Console.WriteLine(alice);
+        }
+        static string GetCategory(Person person) => person switch
+        {
+            { Age: < 18 } => "Ungdom",
+            { Age: >= 18 and < 65 } => "Vuxen",
+            { Age: >= 65 } => "Senior",
+            _ => "Okänd kategori"
+        };
+
+    }
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
     }
 
     public abstract class Shape { }
