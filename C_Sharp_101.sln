@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Try Catch Finaly Demo", "Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern Matching", "Pattern Matching\Pattern Matching.csproj", "{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern Matching nested", "Pattern Matching nested\Pattern Matching nested.csproj", "{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
