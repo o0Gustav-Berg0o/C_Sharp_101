@@ -41,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patternmatching Gruppövnin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Gruppövning", "Query Expressions Gruppövning\Query Expressions Gruppövning.csproj", "{146A26AE-53FE-4799-92BA-06D2716A39DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expresson Demos", "Query Expresson Demos\Query Expresson Demos.csproj", "{776009BC-BB77-48B9-A849-836D20964B73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776009BC-BB77-48B9-A849-836D20964B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776009BC-BB77-48B9-A849-836D20964B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776009BC-BB77-48B9-A849-836D20964B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776009BC-BB77-48B9-A849-836D20964B73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
