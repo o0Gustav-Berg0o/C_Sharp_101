@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Gruppövn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expresson Demos", "Query Expresson Demos\Query Expresson Demos.csproj", "{776009BC-BB77-48B9-A849-836D20964B73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Övningar", "Query Expressions Övningar\Query Expressions Övningar.csproj", "{8C850521-A738-43E1-AD15-28B4909586BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{776009BC-BB77-48B9-A849-836D20964B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{776009BC-BB77-48B9-A849-836D20964B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{776009BC-BB77-48B9-A849-836D20964B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C850521-A738-43E1-AD15-28B4909586BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C850521-A738-43E1-AD15-28B4909586BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C850521-A738-43E1-AD15-28B4909586BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C850521-A738-43E1-AD15-28B4909586BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
