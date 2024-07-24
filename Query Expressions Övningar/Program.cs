@@ -80,11 +80,6 @@ class Program
 
         //Övning 17: Identifiera produkter som kan vara överlagrade (anta att en produkt är överlagrad om dess Quantity > 200 och den inte har blivit påfylld de senaste 60 dagarna).
 
-        //Övning 18: Generera en försäljningsprognos genom att anta att produkter säljer snabbare ju närmare deras senaste påfyllnadsdatum är. (Detta är en förenkling och kräver att du skapar en egen logik för prognosen.)
-
-        //Övning 19: Skapa en rekommendationslista för korsförsäljning genom att gruppera produkter som ofta köps tillsammans (baserat på kategori eller andra egenskaper du anser relevanta).
-
-        //Övning 20: Implementera en sökfunktion som tillåter fuzzy matching på produktnamn och returnerar de 5 mest relevanta träffarna sorterade efter relevans.
         Console.ReadLine();
     }
 

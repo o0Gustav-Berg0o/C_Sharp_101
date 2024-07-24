@@ -4,12 +4,13 @@
     {
         static void Main(string[] args)
         {
-          
-          // DemoOne();
-          // DemoTwo();
-          // DemoThree();
-             DemoFour();
-             
+
+            // DemoOne();
+            // DemoTwo();
+            // DemoThree();
+            //DemoFour();
+             DemoFive();
+
             Console.ReadLine();
         }
 
@@ -17,15 +18,15 @@
         {
             var numbers = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-            var evenNumbers = 
+            var evenNumbers =
                               from number in numbers
-                                            // Titta på alla nummer i arrayen "numbers"
+                                  // Titta på alla nummer i arrayen "numbers"
                               where number % 2 == 0
-                                            // Behåll endast nummer som är jämna
+                              // Behåll endast nummer som är jämna
                               orderby number descending
-                                            // Sortera i fallande ordning
+                              // Sortera i fallande ordning
                               select number;
-                                            // Spara hela objektet.
+            // Spara hela objektet.
 
 
             foreach (var num in evenNumbers)
@@ -44,15 +45,15 @@
             new Person { FirstName = "David", LastName = "Lee", Age = 28 }
         };
 
-            var firstNames = 
+            var firstNames =
                              from person in people
-                             //Titta på alla personer i arrayen "people"
+                                 //Titta på alla personer i arrayen "people"
 
                              orderby person.Age
                              //Sortera listan efter ålder
 
                              select person.FirstName;
-                             //Spara endast förnamnen i listan "firstName"
+            //Spara endast förnamnen i listan "firstName"
 
             Console.WriteLine("First names, sorted by age:");
             foreach (var name in firstNames)
@@ -74,7 +75,7 @@
         };
 
             var groupedPokemons = from pokemon in pokemons
-                                  //Titta på varje pokemon i listan pokemons
+                                      //Titta på varje pokemon i listan pokemons
                                   group pokemon by pokemon.Type into typeGroup
                                   //Gruppera samtliga efter kategorin "Type"
                                   orderby typeGroup.Key
@@ -97,7 +98,7 @@
                                       Pokemons = typeGroup.OrderBy(p => p.Name)
 
                                   };
-                                  
+
 
             // Titta i groupedPokemonms -> resultView
 
@@ -135,7 +136,7 @@
 
             //Inner join - Tar bara med objekt om matching finns
             var peopleWithAddresses = from person in people
-                                      //Kolla på alla personer i listan people
+                                          //Kolla på alla personer i listan people
                                       join address in addresses
                                       //Sätt samman med listan addresses 
                                       on person.Id equals address.PersonId
@@ -158,7 +159,7 @@
             // Exempel på en left outer join - Tar med alla personer från listan people och alla addresser med matchning från listan addresses 
             var allPeopleWithAddresses = from person in people
 
-                                         //Kolla på alla personer i listan people
+                                             //Kolla på alla personer i listan people
                                          join address in addresses
 
                                          //Sätt samman med listan addresses 
@@ -167,12 +168,12 @@
                                          // Matchningen görs baserat på person.Id och address.PersonId
                                          // Resultatet av matchningen sparas i en grupp kallad 'addressGroup'
                                          // 'into' skapar en tillfällig variabel (addressGroup) som innehåller alla matchande adresser för varje person
-                                        
+
                                          from address in addressGroup.DefaultIfEmpty()
                                              // Denna rad hanterar fall där en person inte har någon matchande adress
                                              // Om det inte finns någon matchning, kommer 'address' att vara null
-                                          
-                                         // DefaultIfEmpty() säkerställer att vi får ett resultat för varje person, även om de inte har en adress
+
+                                             // DefaultIfEmpty() säkerställer att vi får ett resultat för varje person, även om de inte har en adress
                                          select new
                                          {
                                              //PersonName fylls i med FirstName från listan people
@@ -189,8 +190,80 @@
                 Console.WriteLine($"{item.PersonName}: {item.Address}");
             }
         }
+
+        #region Demo Five
+        static void DemoFive()
+        {
+            List<Product> inventory = InitializeData();
+            TraditionalApproach(inventory);
+            QueryExpressionApproach(inventory);
+        }
+        static void TraditionalApproach(List<Product> inventory)
+        {
+            // 1. Hitta alla verktyg som kostar mindre än 100 kr
+            List<Product> cheapTools = new List<Product>();
+            foreach (var product in inventory)
+            {
+                if (product.Category == "Verktyg" && product.Price < 100)
+                {
+                    cheapTools.Add(product);
+                }
+            }
+
+            // 2. Sortera dem efter pris
+            cheapTools.Sort((a, b) => a.Price.CompareTo(b.Price));
+
+            // 3. Visa resultatet
+            foreach (var product in cheapTools)
+            {
+                Console.WriteLine($"{product.Name}: {product.Price:C2}");
+            }
+
+            // 4. Beräkna det totala värdet
+            decimal totalValue = 0;
+            foreach (var product in cheapTools)
+            {
+                totalValue += product.Price;
+            }
+            Console.WriteLine($"Totalt värde: {totalValue:C2}");
+        }
+
+        static void QueryExpressionApproach(List<Product> inventory)
+        {
+            // 1, 2 och 3. Hitta billiga verktyg, sortera och visa dem
+            var cheapTools = from product in inventory
+                             where product.Category == "Verktyg" && product.Price < 100
+                             orderby product.Price
+                             select product;
+
+            foreach (var product in cheapTools)
+            {
+                Console.WriteLine($"{product.Name}: {product.Price:C2}");
+            }
+
+            // 4. Beräkna det totala värdet
+            decimal totalValue = cheapTools.Sum(p => p.Price);
+            Console.WriteLine($"Totalt värde: {totalValue:C2}");
+        }
+
+        static List<Product> InitializeData()
+        {
+            var inventory = new List<Product>
+        {
+            new Product { Name = "Hammare", Category = "Verktyg", Price = 149.99m },
+            new Product { Name = "Skruvmejsel", Category = "Verktyg", Price = 39.99m },
+            new Product { Name = "Tång", Category = "Verktyg", Price = 89.99m },
+            new Product { Name = "Såg", Category = "Verktyg", Price = 199.99m },
+            new Product { Name = "Måttband", Category = "Verktyg", Price = 59.99m },
+            new Product { Name = "Borrmaskin", Category = "Elverktyg", Price = 799.99m },
+            new Product { Name = "Spik 100-pack", Category = "Fästmaterial", Price = 29.99m }
+        };
+            return inventory;
+        }
+        #endregion
     }
-    
+
+
 }
 public class Person
 {
@@ -212,5 +285,12 @@ public class Address
     public int PersonId { get; set; }
     public string Street { get; set; }
     public string City { get; set; }
+}
+
+class Product
+{
+    public string Name { get; set; }
+    public string Category { get; set; }
+    public decimal Price { get; set; }
 }
 
