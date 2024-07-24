@@ -31,13 +31,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exceptions Demo", "Exceptio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Try Catch Finaly Demo", "Try Catch Finaly Demo\Try Catch Finaly Demo.csproj", "{7E7B966E-17C4-4EE9-BDE6-60102FE7C9E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern Matching", "Pattern Matching\Pattern Matching.csproj", "{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern Matching", "Pattern Matching\Pattern Matching.csproj", "{2A163ED0-4ED7-4D1B-9F90-20FD5F2F2C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern Matching nested", "Pattern Matching nested\Pattern Matching nested.csproj", "{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern Matching nested", "Pattern Matching nested\Pattern Matching nested.csproj", "{74F8ACF9-9FD4-4B1B-A4BE-B854DDE06B00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pattern Matching types", "Pattern Matching types\Pattern Matching types.csproj", "{48AC9FE3-FA76-4577-84F7-EBDF103970CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern Matching types", "Pattern Matching types\Pattern Matching types.csproj", "{48AC9FE3-FA76-4577-84F7-EBDF103970CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patternmatching Gruppövning", "Patternmatching Gruppövning\Patternmatching Gruppövning.csproj", "{31730CFD-92A5-43F5-9301-87AB28A76895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patternmatching Gruppövning", "Patternmatching Gruppövning\Patternmatching Gruppövning.csproj", "{31730CFD-92A5-43F5-9301-87AB28A76895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Gruppövning", "Query Expressions Gruppövning\Query Expressions Gruppövning.csproj", "{146A26AE-53FE-4799-92BA-06D2716A39DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{31730CFD-92A5-43F5-9301-87AB28A76895}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31730CFD-92A5-43F5-9301-87AB28A76895}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31730CFD-92A5-43F5-9301-87AB28A76895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146A26AE-53FE-4799-92BA-06D2716A39DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
