@@ -44,9 +44,47 @@ class Program
             Console.WriteLine(product);
         }
 
-      //Övning 1 filtera efter...
-      //Övning 2 Sortera efter...
+        // Här kan du skriva dina Query Expressions för varje övning
 
+        //Övning 1: Lista alla produkter i kategorin "Verktyg".
+
+        //Övning 2: Hitta alla produkter som kostar mindre än 100 kr.
+
+        //Övning 3: Sortera alla produkter efter pris, från lägsta till högsta.
+
+        //Övning 4: Räkna hur många produkter som finns i kategorin "Säkerhetsutrustning".
+
+        //Övning 5: Visa namnen på alla produkter som har fler än 100 i lager.
+
+        //Övning 6: Gruppera produkterna efter kategori och visa antalet produkter i varje kategori.
+
+        //Övning 7: Hitta den dyraste produkten i varje kategori.
+
+        //Övning 8: Lista alla produkter som har blivit påfyllda (LastRestocked) under de senaste 30 dagarna.
+
+        //Övning 9: Beräkna det totala lagervärdet (Quantity * Price) för alla produkter.
+
+        //Övning 10: Hitta de tre produkterna med lägst lagersaldo (Quantity).
+
+        //Övning 11: Skapa en rapport som visar kategori, antal produkter i kategorin, och det genomsnittliga priset för produkter i den kategorin.
+
+        //Övning 12: Hitta produkter som behöver beställas (anta att en produkt behöver beställas om Quantity < 50) och sortera dem efter hur brådskande beställningen är (baserat på nuvarande Quantity).
+
+        //Övning 13: För varje leverantör, lista alla länder de levererar från och antalet leverantörer per land.
+
+        //Övning 14: Skapa en topplista över de 5 mest värdefulla produkterna baserat på deras totala lagervärde (Quantity * Price).
+
+        //Övning 15: Generera en rapport som visar hur länge sedan varje produkt senast fylldes på (i dagar), sorterat från längst tid till kortast tid.
+
+        //Övning 16: Skapa en pivottabell som visar antalet produkter per kategori och prisklass (t.ex. 0-100 kr, 101-500 kr, 501+ kr).
+
+        //Övning 17: Identifiera produkter som kan vara överlagrade (anta att en produkt är överlagrad om dess Quantity > 200 och den inte har blivit påfylld de senaste 60 dagarna).
+
+        //Övning 18: Generera en försäljningsprognos genom att anta att produkter säljer snabbare ju närmare deras senaste påfyllnadsdatum är. (Detta är en förenkling och kräver att du skapar en egen logik för prognosen.)
+
+        //Övning 19: Skapa en rekommendationslista för korsförsäljning genom att gruppera produkter som ofta köps tillsammans (baserat på kategori eller andra egenskaper du anser relevanta).
+
+        //Övning 20: Implementera en sökfunktion som tillåter fuzzy matching på produktnamn och returnerar de 5 mest relevanta träffarna sorterade efter relevans.
         Console.ReadLine();
     }
 
