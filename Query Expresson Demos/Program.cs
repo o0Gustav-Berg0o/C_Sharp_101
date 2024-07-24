@@ -10,6 +10,7 @@
             // DemoThree();
             //DemoFour();
              DemoFive();
+            DemoSix();
 
             Console.ReadLine();
         }
@@ -259,6 +260,71 @@
             new Product { Name = "Spik 100-pack", Category = "Fästmaterial", Price = 29.99m }
         };
             return inventory;
+        }
+        #endregion
+
+        #region Demo Six
+        static void DemoSix()
+        {
+            List<Product> inventory = InitializeData();
+            TraditionalApproach(inventory);
+            QueryExpressionApproachTwo(inventory);
+        }
+        static void QueryExpressionApproachTwo(List<Product> inventory)
+        {
+             // 1. Filtrera produkter och gruppera efter kategori
+        var groupedProducts = from product in inventory
+                              where product.Price > 100
+                              group product by product.Category into categoryGroup
+                              select new
+                              {
+                                  Category = categoryGroup.Key,
+                                  AveragePrice = categoryGroup.Average(p => p.Price),
+                                  ProductCount = categoryGroup.Count()
+                              };
+
+            // 2. Sortera resultat
+            var sortedGroups = from categoryResult in groupedProducts
+                               orderby categoryResult.AveragePrice descending
+                               select categoryResult;
+
+
+            // Visa resultat
+            foreach (var group in sortedGroups)
+        {
+            Console.WriteLine($"Kategori: {group.Category}");
+            Console.WriteLine($"Genomsnittspris: {group.AveragePrice:C2}");
+            Console.WriteLine($"Antal produkter: {group.ProductCount}");
+            Console.WriteLine();
+        }
+        }
+
+        static void LinqMethodSyntaxApproach(List<Product> inventory)
+        {
+            // 1. Filtrera produkter
+            var expensiveProducts = inventory.Where(product => product.Price > 100);
+
+            // 2. Gruppera efter kategori
+            var groupedProducts = expensiveProducts
+                .GroupBy(product => product.Category)
+                .Select(categoryGroup => new
+                {
+                    Category = categoryGroup.Key,
+                    AveragePrice = categoryGroup.Average(p => p.Price),
+                    ProductCount = categoryGroup.Count()
+                });
+
+            // 3. Sortera resultat
+            var sortedGroups = groupedProducts.OrderByDescending(group => group.AveragePrice);
+
+            // Visa resultat
+            foreach (var group in sortedGroups)
+            {
+                Console.WriteLine($"Kategori: {group.Category}");
+                Console.WriteLine($"Genomsnittspris: {group.AveragePrice:C2}");
+                Console.WriteLine($"Antal produkter: {group.ProductCount}");
+                Console.WriteLine();
+            }
         }
         #endregion
     }
