@@ -39,11 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern Matching types", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patternmatching Gruppövning", "Patternmatching Gruppövning\Patternmatching Gruppövning.csproj", "{31730CFD-92A5-43F5-9301-87AB28A76895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Gruppövning", "Query Expressions Gruppövning\Query Expressions Gruppövning.csproj", "{146A26AE-53FE-4799-92BA-06D2716A39DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Query Expressions Gruppövning", "Query Expressions Gruppövning\Query Expressions Gruppövning.csproj", "{146A26AE-53FE-4799-92BA-06D2716A39DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expresson Demos", "Query Expresson Demos\Query Expresson Demos.csproj", "{776009BC-BB77-48B9-A849-836D20964B73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Query Expresson Demos", "Query Expresson Demos\Query Expresson Demos.csproj", "{776009BC-BB77-48B9-A849-836D20964B73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Query Expressions Övningar", "Query Expressions Övningar\Query Expressions Övningar.csproj", "{8C850521-A738-43E1-AD15-28B4909586BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Query Expressions Övningar", "Query Expressions Övningar\Query Expressions Övningar.csproj", "{8C850521-A738-43E1-AD15-28B4909586BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Struct and Records Group Exercise", "Struct and Records Group Exercise\Struct and Records Group Exercise.csproj", "{6AF669D2-B7FC-4559-B144-7168A163EFB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Random Minecraft", "Random Minecraft\Random Minecraft.csproj", "{36ADCBCF-E0FE-4EFB-A202-B300145DDB7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +139,14 @@ Global
 		{8C850521-A738-43E1-AD15-28B4909586BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C850521-A738-43E1-AD15-28B4909586BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C850521-A738-43E1-AD15-28B4909586BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF669D2-B7FC-4559-B144-7168A163EFB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF669D2-B7FC-4559-B144-7168A163EFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF669D2-B7FC-4559-B144-7168A163EFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF669D2-B7FC-4559-B144-7168A163EFB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36ADCBCF-E0FE-4EFB-A202-B300145DDB7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36ADCBCF-E0FE-4EFB-A202-B300145DDB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36ADCBCF-E0FE-4EFB-A202-B300145DDB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36ADCBCF-E0FE-4EFB-A202-B300145DDB7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
