@@ -1,55 +1,70 @@
-﻿namespace Static
+﻿using System;
+using System.Collections.Generic;
+
+namespace PokemonDemo
 {
-    using System;
-
-    public class Calculator
-    {
-        // Static member
-        public static int StaticCount { get; private set; }
-
-        // Instance member
-        public int InstanceCount { get; private set; }
-
-        // Static method
-        public static int Add(int a, int b)
-        {
-            StaticCount++;
-            return a + b;
-        }
-
-        // Instance method
-        public int Multiply(int a, int b)
-        {
-            InstanceCount++;
-            return a * b;
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            // Using static method and property
-            Console.WriteLine($"5 + 3 = {Calculator.Add(5, 3)}");
-            Console.WriteLine($"Static count: {Calculator.StaticCount}");
+            Console.WriteLine("Skapar Pokemons och demonstrerar fallgropar:");
 
-            // Creating instances of Calculator
-            Calculator calc1 = new Calculator();
-            Calculator calc2 = new Calculator();
+            Pokemon pika1 = new Pokemon("Pikachu", 10);
+            Pokemon pika2 = new Pokemon("Pikachu", 15);
+            Pokemon charm = new Pokemon("Charmander", 12);
 
-            // Using instance methods
-            Console.WriteLine($"4 * 6 = {calc1.Multiply(4, 6)}");
-            Console.WriteLine($"2 * 8 = {calc2.Multiply(2, 8)}");
+            Console.WriteLine($"Totalt antal Pokemon: {Pokemon.NumberOfPokemon}");
+            Console.WriteLine($"Pika1 level: {pika1.Level}, Pika2 level: {pika2.Level}");
 
-            // Showing instance counts
-            Console.WriteLine($"calc1 instance count: {calc1.InstanceCount}");
-            Console.WriteLine($"calc2 instance count: {calc2.InstanceCount}");
+            // Fallgrop 1: Oavsiktlig delning av statisk data
+            Pokemon.SharedBattlePoints = 100;
+            pika1.AddBattlePoints(50);
+            Console.WriteLine($"Pika1 battle points: {Pokemon.SharedBattlePoints}");
+            Console.WriteLine($"Pika2 battle points: {Pokemon.SharedBattlePoints}");
 
-            // Using static method again
-            Console.WriteLine($"10 + 7 = {Calculator.Add(10, 7)}");
-            Console.WriteLine($"Final static count: {Calculator.StaticCount}");
+            // Fallgrop 2: Modifiering av statisk data från instansmetod
+            pika1.IncrementSharedCounter();
+            pika2.IncrementSharedCounter();
+            Console.WriteLine($"Shared counter: {Pokemon.SharedCounter}");
 
-            Console.ReadLine(); // Keep console window open
+            Console.ReadKey();
+        }
+    }
+
+    class Pokemon
+    {
+        public string Name { get; private set; }
+        public int Level { get; private set; }
+        public static int NumberOfPokemon { get; private set; }
+        public static int SharedBattlePoints { get; set; }
+        public static int SharedCounter { get; private set; }
+        public static List<Pokemon> SharedPokemonList { get; } = new List<Pokemon>();
+
+        public Pokemon(string name, int level)
+        {
+            Name = name;
+            Level = level;
+            NumberOfPokemon++;
+        }
+
+        public void AddBattlePoints(int points)
+        {
+            SharedBattlePoints += points; // Fallgrop 1: Modifierar statisk data
+        }
+
+        public void IncrementSharedCounter()
+        {
+            SharedCounter++; // Fallgrop 2: Instansmetod modifierar statisk data
+        }
+
+        public static void StaticLevelUp(Pokemon pokemon)
+        {
+            pokemon.Level++; // Fallgrop 3: Statisk metod modifierar instansdata
+        }
+
+        public static void AddToSharedList(Pokemon pokemon)
+        {
+            SharedPokemonList.Add(pokemon); // Fallgrop 4: Delar en statisk lista mellan alla instanser
         }
     }
 }
