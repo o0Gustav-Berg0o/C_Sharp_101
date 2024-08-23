@@ -8,8 +8,6 @@ class ExceptionDemo
         Console.WriteLine("Exception Demonstration\n");
 
 
-
-
         try
         {
             // Demonstrera olika typer av exceptions

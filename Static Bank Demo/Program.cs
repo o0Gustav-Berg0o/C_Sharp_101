@@ -6,8 +6,8 @@
         /*  
          Fallgrop 1
 
-         I denna demo representerar BankReserves bankens totala reserver. Det är en statisk variabel som delas av alla BankAccount-instanser.
-         -Alla kontoinstanser delar och kan modifiera samma BankReserves.
+         I denna demo representerar TotalaBankreserv bankens totala reserver. Det är en statisk variabel som delas av alla BankAccount-instanser.
+         -Alla kontoinstanser delar och kan modifiera samma TotalaBankreserv.
          -När ett konto lägger till pengar till reserverna, påverkar det bankens totala reserver för alla konton.
          -Detta kan leda till oväntade resultat och potentiellt inkonsistent data om inte hanterat korrekt.
          
@@ -27,11 +27,11 @@
             Console.WriteLine($"Totalt antal konton: {BankAccount.TotalAccounts}");
 
             // Fallgrop 1: Oavsiktlig delning av statisk data
-            BankAccount.BankReserves = 10000;
+            BankAccount.TotalaBankreserv = 10000;
             account1.AddToReserves(1000);
-            Console.WriteLine($"Bank reserver efter Alice's tillägg: {BankAccount.BankReserves}");
+            Console.WriteLine($"Bank reserver efter Alice's tillägg: {BankAccount.TotalaBankreserv}");
             account2.AddToReserves(500);
-            Console.WriteLine($"Bank reserver efter Bob's tillägg: {BankAccount.BankReserves}");
+            Console.WriteLine($"Bank reserver efter Bob's tillägg: {BankAccount.TotalaBankreserv}");
 
             // Fallgrop 2: Modifiering av statisk data från instansmetod
             account1.PerformTransaction(100);
@@ -49,7 +49,7 @@
         public string OwnerName { get; private set; }
         public decimal Balance { get; private set; }
         public static int TotalAccounts { get; private set; }
-        public static decimal BankReserves { get; set; }
+        public static decimal TotalaBankreserv { get; set; }
         public static int TotalTransactions { get; private set; }
 
         public BankAccount(string ownerName, decimal initialBalance)
@@ -61,7 +61,7 @@
 
         public void AddToReserves(decimal amount)
         {
-            BankReserves += amount; // Fallgrop 1: Modifierar statisk data
+            TotalaBankreserv += amount; // Fallgrop 1: Modifierar statisk data
         }
 
         public void PerformTransaction(decimal amount)

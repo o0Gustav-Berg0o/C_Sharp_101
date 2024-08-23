@@ -1,11 +1,12 @@
-﻿namespace Random_Minecraft
-{
-    using System;
+﻿using System;
 
+namespace Random_Minecraft
+{
     class Program
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Advanced Minecraft-inspired 2D Terrain Generator");
             Console.WriteLine("===============================================");
 
@@ -145,9 +146,39 @@
             {
                 for (int x = 0; x < width; x++)
                 {
+                    Console.ForegroundColor = GetColorForTile(terrain[y, x]);
                     Console.Write(terrain[y, x]);
                 }
                 Console.WriteLine();
+            }
+            Console.ResetColor(); // Reset color after drawing
+        }
+
+        static ConsoleColor GetColorForTile(char tile)
+        {
+            switch (tile)
+            {
+                case '^':
+                case '▲':
+                    return ConsoleColor.DarkGray;
+                case '●':
+                    return ConsoleColor.DarkYellow;
+                case '♠':
+                    return ConsoleColor.Green;
+                case '░':
+                    return ConsoleColor.DarkGreen;
+                case '▒':
+                    return ConsoleColor.DarkRed;
+                case '▓':
+                    return ConsoleColor.Gray;
+                case '☼':
+                    return ConsoleColor.Yellow;
+                case '≈':
+                    return ConsoleColor.Blue;
+                case '□':
+                    return ConsoleColor.DarkMagenta;
+                default:
+                    return ConsoleColor.White;
             }
         }
     }
