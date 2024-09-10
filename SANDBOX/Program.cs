@@ -1,186 +1,48 @@
-﻿
-using System;
+﻿string bob = "bob";
+String bob2 = "bob";
+Int128 alice = 11;
 
-namespace Random_Minecraft
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Advanced Minecraft-inspired 2D Terrain Generator");
-            Console.WriteLine("===============================================");
 
-            Random random = new Random();
-            int width = 100;  // Width of our terrain
-            int maxHeight = 25;  // Maximum height of our terrain
+string elite = "1337";
+string choice = "false";
+string value = "3.14";
 
-            // Generate and display the terrain
-            char[,] terrain = GenerateTerrain(random, width, maxHeight);
-            DisplayTerrain(terrain);
+int eliteConverted = int.Parse(elite);
 
-            Console.WriteLine("\nLegend:");
-            Console.WriteLine("^ - Mountain peak");
-            Console.WriteLine("▲ - Mountain");
-            Console.WriteLine("● - Hill");
-            Console.WriteLine("♠ - Tree");
-            Console.WriteLine("░ - Grass");
-            Console.WriteLine("▒ - Dirt");
-            Console.WriteLine("▓ - Stone");
-            Console.WriteLine("☼ - Ore");
-            Console.WriteLine("≈ - Water");
-            Console.WriteLine("□ - Cave");
+short s = 100;
+Console.WriteLine(s);
+int i = s; // Implicit konvertering från short till int
+Console.WriteLine(i);
 
-            Console.WriteLine("\nPress any key to generate a new terrain...");
-            while (Console.ReadKey(true).Key != ConsoleKey.Escape)
-            {
-                terrain = GenerateTerrain(random, width, maxHeight);
-                DisplayTerrain(terrain);
-            }
-        }
 
-        static char[,] GenerateTerrain(Random random, int width, int maxHeight)
-        {
-            char[,] terrain = new char[maxHeight, width];
-            int[] heightMap = new int[width];
-            int height = maxHeight / 2;
 
-            // Generate height map
-            for (int x = 0; x < width; x++)
-            {
-                height += random.Next(-1, 2);
-                height = Math.Max(1, Math.Min(height, maxHeight - 1));
-                heightMap[x] = height;
+decimal temperature = 21.4m;
 
-                // Add random peaks
-                if (random.Next(20) == 0)
-                {
-                    heightMap[x] = Math.Min(height + random.Next(1, 5), maxHeight - 1);
-                }
-            }
+int temperatureConvertedFromDecimal = (int)temperature;
+Console.WriteLine(temperatureConvertedFromDecimal);
+Console.ReadLine();
 
-            // Generate terrain based on height map
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < maxHeight; y++)
-                {
-                    if (y > heightMap[x])
-                    {
-                        terrain[y, x] = ' '; // Air
-                    }
-                    else if (y == heightMap[x])
-                    {
-                        if (y > maxHeight * 0.7) terrain[y, x] = '^'; // Mountain peak
-                        else if (y > maxHeight * 0.6) terrain[y, x] = '▲'; // Mountain
-                        else if (y > maxHeight * 0.5) terrain[y, x] = '●'; // Hill
-                        else if (random.Next(10) == 0) terrain[y, x] = '♠'; // Tree
-                        else terrain[y, x] = '░'; // Grass
-                    }
-                    else if (y > heightMap[x] - 3)
-                    {
-                        terrain[y, x] = '▒'; // Dirt
-                    }
-                    else
-                    {
-                        terrain[y, x] = '▓'; // Stone
-                    }
-                }
-            }
+// Explicit konvertering från double till int
+double decimalTal = 3.14;
+int heltal = (int)decimalTal;
+Console.WriteLine($"Double {decimalTal} konverterad till int: {heltal}");
 
-            // Add water
-            int waterLevel = maxHeight / 3;
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = waterLevel; y < heightMap[x]; y++)
-                {
-                    terrain[y, x] = '≈';
-                }
-            }
+// Explicit konvertering från long till int
+long storTal = 2147483648; // Detta tal är större än int.MaxValue
+int mindreHeltal = (int)storTal;
+Console.WriteLine($"Long {storTal} konverterad till int: {mindreHeltal}");
+//Här skapar vi en long-variabel med värdet 2147483648. Det är viktigt att notera att detta tal är precis ett steg över int.MaxValue, som är 2147483647.
+//Det intressanta här är att resultatet blir -2147483648, vilket är int.MinValue. Detta fenomen kallas "integer overflow"
+//När vi försöker konvertera 2147483648 (som är 2^31) till en int, "rullar" värdet över till det lägsta möjliga negativa talet, vilket är -2^31 (-2147483648).
 
-            // Add caves and ore
-            for (int i = 0; i < width * maxHeight / 50; i++)
-            {
-                int caveX = random.Next(width);
-                int caveY = random.Next(waterLevel, maxHeight);
-                GenerateCave(terrain, caveX, caveY, random);
-            }
+// Explicit konvertering från string till int
+string talSomText = "123";
+int talFranText = Convert.ToInt32(talSomText);
+Console.WriteLine($"String \"{talSomText}\" konverterad till int: {talFranText}");
 
-            return terrain;
-        }
 
-        static void GenerateCave(char[,] terrain, int startX, int startY, Random random)
-        {
-            int maxHeight = terrain.GetLength(0);
-            int width = terrain.GetLength(1);
-            int length = random.Next(5, 15);
+string beloppSträng = "123.45";
 
-            for (int i = 0; i < length; i++)
-            {
-                int x = (startX + i) % width;
-                int y = Math.Min(Math.Max(startY + random.Next(-1, 2), 0), maxHeight - 1);
+var beloppSträng2 = Convert.ToDecimal(beloppSträng);
 
-                if (terrain[y, x] != '≈' && terrain[y, x] != ' ')
-                {
-                    terrain[y, x] = '□'; // Cave
-
-                    // Occasionally add ore
-                    if (random.Next(10) == 0)
-                    {
-                        int oreX = Math.Min(Math.Max(x + random.Next(-1, 2), 0), width - 1);
-                        int oreY = Math.Min(Math.Max(y + random.Next(-1, 2), 0), maxHeight - 1);
-                        if (terrain[oreY, oreX] == '▓')
-                        {
-                            terrain[oreY, oreX] = '☼'; // Ore
-                        }
-                    }
-                }
-            }
-        }
-
-        static void DisplayTerrain(char[,] terrain)
-        {
-            Console.Clear();
-            int maxHeight = terrain.GetLength(0);
-            int width = terrain.GetLength(1);
-
-            for (int y = 0; y < maxHeight; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    Console.ForegroundColor = GetColorForTile(terrain[y, x]);
-                    Console.Write(terrain[y, x]);
-                }
-                Console.WriteLine();
-            }
-            Console.ResetColor(); // Reset color after drawing
-        }
-
-        static ConsoleColor GetColorForTile(char tile)
-        {
-            switch (tile)
-            {
-                case '^':
-                case '▲':
-                    return ConsoleColor.DarkGray;
-                case '●':
-                    return ConsoleColor.DarkYellow;
-                case '♠':
-                    return ConsoleColor.Green;
-                case '░':
-                    return ConsoleColor.DarkGreen;
-                case '▒':
-                    return ConsoleColor.DarkRed;
-                case '▓':
-                    return ConsoleColor.Gray;
-                case '☼':
-                    return ConsoleColor.Yellow;
-                case '≈':
-                    return ConsoleColor.Blue;
-                case '□':
-                    return ConsoleColor.DarkMagenta;
-                default:
-                    return ConsoleColor.White;
-            }
-        }
-    }
-}
+Console.WriteLine(beloppSträng2);
