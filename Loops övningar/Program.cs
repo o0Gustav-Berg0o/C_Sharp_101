@@ -462,41 +462,202 @@ namespace Loops_övningar
             /*Summa: Skriv ett program som adderar tal som användaren matar in tills summan överstiger 100. 
             * Använd break för att avsluta inmatningen när gränsen nås. */
 
-            int sumOfGuessedNumbers = 0;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("Enter number");
-                int guess = Convert.ToInt32(Console.ReadLine());
+            //int sumOfGuessedNumbers = 0;
+            //do
+            //{
+            //    Console.Clear();
+            //    Console.WriteLine("Enter number");
+            //    int guess = Convert.ToInt32(Console.ReadLine());
 
-                sumOfGuessedNumbers += guess;
-                if (sumOfGuessedNumbers > 100)
-                {
-                    break;
-                }
-            }
-            while (true);
+            //    sumOfGuessedNumbers += guess;
+            //    if (sumOfGuessedNumbers > 100)
+            //    {
+            //        break;
+            //    }
+            //}
+            //while (true);
+
+            /*Bokstavsjakt: Be användaren mata in en mening. 
+             * Använd en loop för att gå igenom varje tecken och använd break för att avsluta när den första vokalen hittas.
+             * Skriv ut positionen för vokalen.*/
+
+            //Console.WriteLine("Skriv in en mening:");
+            //string mening = Console.ReadLine();
+
+            //int position = -1;
+            //for (int i = 0; i < mening.Length; i++)
+            //{
+            //    char tecken = char.ToLower(mening[i]);
+            //    if (tecken == 'a' || tecken == 'e' || tecken == 'i' || tecken == 'o' || tecken == 'u' || tecken == 'y' || tecken == 'å' || tecken == 'ä' || tecken == 'ö')
+            //    {
+            //        position = i;
+            //        break;
+            //    }
+            //}
+
+            //if (position != -1)
+            //{
+            //    Console.WriteLine($"Den första vokalen hittades på position {position}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Ingen vokal hittades i meningen.");
+            //}
 
 
+            /*Slumptalsgenerator: Generera slumptal mellan 1 och 10 tills talet 7 slumpas fram. 
+             * Använd break för att avsluta loopen och skriv ut hur många försök som krävdes.*/
+
+            //Random random = new Random();
+
+            //while (true) 
+            //{
+            //    int tal = random.Next(1,10);
+            //    Console.WriteLine(tal);
+            //    if (tal == 7)
+            //    {
+            //        Console.WriteLine("Sjua hittad!");
+            //        break;
+            //    }
+            //}
+
+            /*Primtalsfinnaren: 
+             * Skriv ett program som hittar det första primtalet efter ett tal som användaren matar in.
+             * Använd en loop med break för att avsluta sökningen när primtalet hittas.*/
+
+            //    Console.Write("Ange ett startnummer för att hitta nästa primtal: ");
+            //    int start = int.Parse(Console.ReadLine());
+
+            //    int primtal = 0;
+            //    for (int i = start + 1; ; i++)
+            //    {
+            //        if (ÄrPrimtal(i))
+            //        {
+            //            primtal = i;
+            //            break;
+            //        }
+            //    }
+
+            //    Console.WriteLine($"Nästa primtal efter {start} är {primtal}.");
+            //}
+
+            //static bool ÄrPrimtal(int tal)
+            //{
+            //    if (tal < 2)
+            //        return false;
+
+            //    for (int i = 2; i <= Math.Sqrt(tal); i++)
+            //    {
+            //        if (tal % i == 0)
+            //            return false;
+            //    }
+            //    return true;
+
+
+            //Continue
 
             /*Jämna tal: Skriv ett program som skriver ut alla jämna tal mellan 1 och 50. Använd continue för att hoppa över udda tal. */
 
-            for (int i = 1; i <= 50; i++)
-            {
-                if (i % 2 != 0)
-                {
-                    continue;
-                }
-                Console.WriteLine(i);
-            }
+            //for (int i = 1; i <= 50; i++)
+            //{
+            //    if (i % 2 != 0)
+            //    {
+            //        continue;
+            //    }
+            //    Console.WriteLine(i);
+            //}
+
+            /*Vokalräknare: Be användaren mata in en mening. 
+             * Räkna antalet vokaler i meningen genom att använda 
+             * continue för att hoppa över konsonanter och specialtecken.*/
+
+            //Console.WriteLine("Skriv en mening");
+            //string meningen = Console.ReadLine();
+            //int vokaler = 0;
+
+            //for (int i = 0; i < meningen.Length; i++)
+            //{
+            //    char tecken = char.ToLower(meningen[i]);
 
 
-            //Loop 
+            //    if (tecken != 'a' && tecken != 'e' && tecken != 'i' && tecken != 'o' && tecken != 'u' &&
+            //   tecken != 'y' && tecken != 'å' && tecken != 'ä' && tecken != 'ö')
+            //    {
+            //        continue;
+            //    }
+            //    else
+            //    {
+            //        vokaler++;
+            //    }
+
+            //}
+            //Console.WriteLine(vokaler);
+
+
+
+            /*Multiplar av 3 och 5: Skriv ut alla tal från 1 till 100, 
+             * men använd continue för att hoppa över tal som är delbara med både 3 och 5.*/
+
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    if (i % 3 == 0)
+            //    {
+            //        continue;
+            //    }
+            //    if (i % 5 == 0)
+            //    {
+            //        continue;
+            //    }
+            //    Console.WriteLine(i);
+            //}
+
+
+            /*Namnfilter: Skapa en lista med namn. 
+             * Gå igenom listan och skriv bara ut namn som börjar med en vokal. 
+             * Använd continue för att hoppa över namn som börjar med en konsonant.*/
+
+            //string[] names = { "Anka", "Betty", "Åke", "Pumba", "47" };
+            //string vokaler = "aeiouyåäö";
+
+            //for (int i = 0; i < names.Length; i++)
+            //{
+
+            //    if (!vokaler.Contains(names[i].ToLower()[0]))
+            //    {
+            //        continue;
+            //    }
+            //    Console.WriteLine(names[i]);
+            //}
+
+            /*Sifferanalys: Be användaren mata in ett flersiffrigt tal. 
+             * Gå igenom varje siffra och skriv ut den om den är större än 5. 
+             * Använd continue för att hoppa över siffror som är 5 eller mindre.*/
+
+            //Console.WriteLine("Mata in ett flersiffrigt tal");
+            //string talet = Console.ReadLine();
+
+            //for (int i = 0; i < talet.Length; i++)
+            //{
+            //    int tal = Convert.ToInt16(talet[i].ToString());
+            //    if (tal <= 4)
+            //    {
+            //        continue;
+            //    }
+            //    if (tal > 5)
+            //    {
+            //        Console.WriteLine("Siffran är : " + tal);
+            //    }
+            //}
+
+
         }
     }
 
-
 }
+
+
+
+
 
 
 
