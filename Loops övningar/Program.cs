@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
+﻿
 namespace Loops_övningar
 {
     internal class Program
