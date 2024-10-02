@@ -19,7 +19,7 @@ if (ReferenceEquals(name, null)) // Kollar om instanserna pekar på samma minnes
 }
 
 // 4. Mönstermatchning med 'is null'
-if (name is null) // Garanterar att en ej överskridbar == används
+if (name is null) // Garanterar att en ej överskridbar == används i bakgrunden
 {
     Console.WriteLine("Name is null (is null)");
 }
