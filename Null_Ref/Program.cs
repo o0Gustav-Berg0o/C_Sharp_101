@@ -1,86 +1,61 @@
-﻿using System;
+﻿string? name = null;
 
-class Person
+// 1. Standardkontroll med ==
+if (name == null) // == kan bli överskriden för referenstyper, men är säker för string
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    Console.WriteLine("Name is null (==)");
 }
 
-class Program
+// 2. Kontroll med !=
+if (name != null) // != kan också bli överskriden
 {
-    static void Main(string[] args)
-    {
-
-        
-        Console.WriteLine();
-
-        Person per = new Person();
-
-
-
-        string userInput = Console.ReadLine();
-
-        if (userInput == null)
-        {
-            //Gör något
-        }
-
-        if (userInput is null)
-        {
-            //Gör något
-        }
-
-        string name = userInput ?? "Inget namn inmatat av användaren";
-
-        name ??= "Inget namn inmatat av användaren";
-
-
-
-        string response = null;
-
-        Console.WriteLine(response);
-
-        Person person = null;
-
-        //Kommer att kasta undantag
-        Console.WriteLine(person.Name);
-
-        if (person != null)
-        {
-            //Kommer INTE att kasta undantag
-            Console.WriteLine(person.Name);
-        }
-
-        // Using the null-conditional operator (?.) for safe member access
-        Console.WriteLine(person?.Name); // Outputs nothing, doesn't throw an exception
-
-        // Using the null coalescing operator (??) to provide a default value
-        string name2 = person?.Name ?? "Unknown";
-        Console.WriteLine($"Name: {name}"); // Outputs: Name: Unknown
-
-        // Nullable value types
-        int? nullableInt = null;
-        Console.WriteLine($"Nullable int: {nullableInt}"); // Outputs: Nullable int: 
-
-        // Using null coalescing operator with nullable value types
-        int definiteInt = nullableInt ?? 0;
-        Console.WriteLine($"Definite int: {definiteInt}"); // Outputs: Definite int: 0
-
-        // Null-forgiving operator (!) - use with caution!
-        // This tells the compiler that we're certain 'person' is not null
-        // Person notNullPerson = person!; // Uncomment to see how it suppresses warnings
-
-        // Demonstrating null reference in a method
-        PrintPersonInfo(null);
-
-        // Creating a non-null Person object
-        Person john = new Person { Name = "John", Age = 30 };
-        PrintPersonInfo(john);
-    }
-
-    static void PrintPersonInfo(Person person)
-    {
-        // Using null-conditional operator in combination with null-coalescing operator
-        Console.WriteLine($"Name: {person?.Name ?? "Unknown"}, Age: {person?.Age.ToString() ?? "Unknown"}");
-    }
+    Console.WriteLine("Name is not null (!=)");
 }
+
+// 3. Använd ReferenceEquals för exakt referenskontroll
+if (ReferenceEquals(name, null)) // Kollar om instanserna pekar på samma minnesplats
+{
+    Console.WriteLine("Name and null point to the same memory location");
+}
+
+// 4. Mönstermatchning med 'is null'
+if (name is null) // Garanterar att en ej överskridbar == används i bakgrunden
+{
+    Console.WriteLine("Name is null (is null)");
+}
+
+// 5. Mönstermatchning med 'is not null'
+if (name is not null)
+{
+    Console.WriteLine($"Name is not null: {name}");
+}
+else
+{
+    Console.WriteLine("Name is null (is not null else)");
+}
+
+// 6. Null-coalescing operator ??
+string displayName = name ?? "Inget namn angivet";
+Console.WriteLine($"Displayname: {displayName}");
+
+// 7. Null-conditional operator ?.
+int? length = name?.Length;
+Console.WriteLine($"Name length: {length ?? 0}");
+
+// 8. Använd string.IsNullOrEmpty för att kontrollera null eller tom sträng
+if (string.IsNullOrEmpty(name))
+{
+    Console.WriteLine("Name is null or empty");
+}
+
+// 9. Använd string.IsNullOrWhiteSpace för att kontrollera null, tom sträng eller endast whitespace
+if (string.IsNullOrWhiteSpace(name))
+{
+    Console.WriteLine("Name is null, empty, or whitespace");
+}
+
+// 10. Använda null-forgiving operator ! (använd med försiktighet)
+#nullable enable
+string notNullName = name!;
+Console.WriteLine($"Not null name length: {notNullName.Length}");
+#nullable restore
